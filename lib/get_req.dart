@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
-class LogoutCheck extends StatefulWidget {
+class GetReq extends StatefulWidget {
   @override
-  _LogoutCheckState createState() => _LogoutCheckState();
+  _GetReqState createState() => _GetReqState();
 }
 
-class _LogoutCheckState extends State<LogoutCheck> {
+class _GetReqState extends State<GetReq> {
   loginCheck() async {
     // Map data = {
     //   'contact' : contact,

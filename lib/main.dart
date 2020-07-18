@@ -1,3 +1,4 @@
+import 'package:LoginRegister/get_req.dart';
 import 'package:LoginRegister/login_page2.dart';
 import 'package:LoginRegister/login_page.dart';
 import 'package:flutter/material.dart';
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: MyHomePage(),
+      home: GetReq(),
     );
   }
 }
@@ -26,11 +27,9 @@ class MyApp extends StatelessWidget {
 class MyHomePage extends StatefulWidget {
   @override
   _MyHomePageState createState() => _MyHomePageState();
-
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
   SharedPreferences sharedPreferences;
 
   @override
@@ -46,10 +45,14 @@ class _MyHomePageState extends State<MyHomePage> {
 
   checkLoginStatus() async {
     sharedPreferences = await SharedPreferences.getInstance();
-    if(sharedPreferences.getString('access_token') == null) {
-      Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (BuildContext context) => LoginPage2()), (Route<dynamic> route) => false);
+    if (sharedPreferences.getString('access_token') == null) {
+      Navigator.of(context).pushAndRemoveUntil(
+          MaterialPageRoute(builder: (BuildContext context) => LoginPage2()),
+          (Route<dynamic> route) => false);
     } else {
-      Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (BuildContext context) => LoginPage()), (Route<dynamic> route) => false);
+      Navigator.of(context).pushAndRemoveUntil(
+          MaterialPageRoute(builder: (BuildContext context) => LoginPage()),
+          (Route<dynamic> route) => false);
     }
   }
 }
